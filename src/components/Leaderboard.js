@@ -7,8 +7,10 @@ const Leaderboard = ({ difficulty }) => {
   useEffect(() => {
     axios.get(`/api/scores/leaderboard?difficulty=${difficulty}`)
       .then(response => {
-        if (response.data.length > 0) {
-          setScores(response.data);
+        const data = response.data;
+
+        if (Array.isArray(data) && data.length > 0) {
+          setScores(data);
         } else {
           setScores([
             { username: 'Player 1', time: 0 },
@@ -18,7 +20,7 @@ const Leaderboard = ({ difficulty }) => {
         }
       })
       .catch(error => {
-        console.error(error);
+        console.error('Error fetching leaderboard:', error);
         setScores([
           { username: 'Player 1', time: 0 },
           { username: 'Player 2', time: 0 },
