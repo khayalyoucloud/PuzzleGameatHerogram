@@ -22,22 +22,23 @@ const PuzzleGrid = ({ grid, correctCells, invalidCells, onMove }) => {
 
   return (
     <div className="puzzle-grid">
-      {grid.map((row, rowIndex) => (
-        <div key={rowIndex} className="puzzle-row">
-          {row.map((cell, colIndex) => (
-            <div
-              key={colIndex}
-              className={`puzzle-cell ${
-                isInvalidCell(rowIndex, colIndex) ? 'invalid' : isCorrectCell(rowIndex, colIndex) ? 'correct' : ''
-              }`}
-              onClick={() => handleCellClick(rowIndex, colIndex)}
-            >
-              {cell !== 0 ? cell : ''}
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
+    {grid.map((row, rowIndex) => (
+      <div key={rowIndex} className="puzzle-row">
+        {row.map((cell, colIndex) => (
+          <div
+            key={colIndex}
+            className={`puzzle-cell ${
+              isInvalidCell(rowIndex, colIndex) ? 'invalid' : isCorrectCell(rowIndex, colIndex) ? 'correct' : ''
+            }`}
+            onClick={() => handleCellClick(rowIndex, colIndex)}
+          >
+            {cell !== 0 ? cell : ''}
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+  
   );
 };
 
