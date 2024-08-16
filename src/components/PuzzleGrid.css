@@ -1,0 +1,48 @@
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 2px;
+  max-width: 450px;
+  margin: 20px auto;
+  border: 2px solid #333;
+  background-color: #f7f7f7;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.puzzle-row {
+  display: contents;
+}
+
+.puzzle-cell {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.puzzle-cell.correct {
+  background-color: #c8e6c9; /* Light green for correct cells */
+}
+
+.puzzle-cell.invalid {
+  background-color: #ffcdd2; /* Light red for invalid cells */
+}
+
+.puzzle-cell:hover {
+  background-color: #e0e0e0;
+}
+
+.success-message {
+  text-align: center;
+  font-size: 1.5em;
+  color: green;
+  margin-top: 20px;
+}

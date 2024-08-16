@@ -1,0 +1,72 @@
+.puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr); /* Adjust the number depending on the grid size */
+    gap: 2px;
+    max-width: 450px;
+    margin: 0 auto;
+    border: 2px solid #333;
+    background-color: #f7f7f7;
+    padding: 5px;
+    border-radius: 8px;
+  }
+  
+  .puzzle-row {
+    display: contents; /* Use contents to maintain the grid structure */
+  }
+  
+  .puzzle-cell {
+    width: 100%;
+    padding-bottom: 100%; /* This maintains the square aspect ratio */
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .puzzle-cell::before {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  
+  .puzzle-cell span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .puzzle-cell:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .puzzle-cell.correct {
+    background-color: #c8e6c9; /* Light green background for correct placements */
+    border-color: #2e7d32;
+  }
+  
+  .puzzle-cell.incorrect {
+    background-color: #ffcdd2; /* Light red background for incorrect placements */
+    border-color: #c62828;
+  }
+  
+  .puzzle-cell.selected {
+    background-color: #bbdefb; /* Light blue background when a cell is selected */
+    border-color: #1e88e5;
+  }
+  
+  @media (max-width: 600px) {
+    .puzzle-grid {
+      max-width: 300px;
+    }
+  
+    .puzzle-cell {
+      font-size: 1.2em;
+    }
+  }
+  
